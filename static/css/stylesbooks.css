@@ -1,0 +1,134 @@
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background: #600e0e;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(214, 214, 214, 0.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #adc7f1 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(187, 7, 7, 0.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(216, 216, 216, 0.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(183, 19, 19, 0.25) 0%,rgba(134, 73, 73, 0.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+
+.bookshelf {
+    background: #663613; /* Consistent shelf background */
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column; /* Align shelves in a vertical column */
+    align-items: center; /* Center shelves horizontally */
+    width: 100%; /* Full width of its container */
+}
+.content {
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 1500px;
+}
+
+.description{
+	color: white;
+}
+
+.heading{
+	color: white;
+}
+.shelf {
+    width: 90%; /* Slightly less than full width to give some margin on the sides */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px; /* Increase space between rows of shelves */
+    padding-bottom: 20px; /* Padding at the bottom of each shelf */
+    border-bottom: 3px solid #654321; /* Simulate a wood divider */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5), /* Bottom shadow */
+                 0 -4px 8px rgba(0,0,0,0.5), /* Top shadow */
+                 -4px 0 8px rgba(0,0,0,0.5), /* Left shadow */
+                 4px 0 8px rgba(0,0,0,0.5); /* Right shadow */
+}
+
+.card {
+    background: #FFFFFF;
+    width: 18%; /* Adjust width as needed */
+    margin: 10px 5px; /* Adjusted margin for optimal spacing */
+    height: 300px; /* Fixed height for uniformity */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 6px; /* Rounded corners for aesthetics */
+    overflow: hidden; /* Hide anything that overflows the card boundary */
+}
+
+.card img {
+    width: 100%; /* Image fills the width */
+    height: 100%; /* Image fills the height */
+    object-fit: cover; /* Ensures the image covers the area, cropping as necessary */
+    border-radius: 6px; /* Maintains the border radius */
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(-180deg);
+    background: #FFF;
+}
+
+.card:hover .front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: rotateY(0deg);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 800px) {
+    .card {
+        width: 45%; /* Larger on smaller screens */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 90%; /* Almost full width on very small screens */
+    }
+}
+
+/* Button styles */
+.button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #1a9be6;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #0c7abc;
+}
+
+.rating, .review {
+    font-style: italic;
+}
+
+

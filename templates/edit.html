@@ -1,0 +1,13 @@
+{% extends 'bookbase.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+<center><h1 class="heading">{{name}}</h1></center>
+  <p></p>
+  <center><h4 class="description">Edit Book Rating</p></center>
+  <div class="content">
+    {{render_form(form, novalidate=True)}}
+  </div>
+</div>
+{% endblock %}

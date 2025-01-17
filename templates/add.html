@@ -1,0 +1,12 @@
+{% extends 'bookbase.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Add Book{% endblock %}
+
+{% block content %}
+   <center> <h1 class="heading">Add a Book</h1></center>
+    <p></p>
+    <div class="content">
+
+    {{render_form(form, novalidate = True)}}
+</div>
+{% endblock %}

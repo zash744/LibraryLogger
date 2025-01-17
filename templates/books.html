@@ -1,0 +1,40 @@
+{% extends 'bookbase.html' %}
+
+{% block title %}My Top Books{% endblock %}
+
+{% block content %}
+<div class="container">
+  <p></p>
+  <h1 class="heading">{{current_user.name}}'s Library</h1>
+  {% if shelves %}
+  <div class="bookshelf">
+    {% for shelf in shelves %}
+    <div class="shelf">
+      {% for book in shelf %}
+      <div class="book card">
+        <div class="front">
+          <img src="{{ book.img_url }}" alt="{{ book.title }}" class="book-image">
+        </div>
+        <div class="back">
+          <div class="card-body">
+            <h5 class="card-title"><b>{{ book.title }}</b></h5>
+            <p class="rating">Rating: {{ book.rating }}</p>
+            <p class="review">Review: "{{ book.review }}"</p>
+            <a href="{{ url_for('update', id = book.id) }}" class="button">Update</a>
+            <p></p>
+            <a href="{{ url_for('delete', id = book.id) }}" class="button delete-button">Delete</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>Your have no books in your library. Add some books!</p>
+  {% endif %}
+</div>
+<div class="container text-center add">
+  <a href="{{ url_for('add') }}" class="button">Add Book</a>
+</div>
+{% endblock %}
