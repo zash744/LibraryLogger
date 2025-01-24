@@ -19,13 +19,15 @@ login_manager = LoginManager(app)
 # CREATE DATABASE
 
 
-class Base(DeclarativeBase):
-    pass
+#class Base(DeclarativeBase):
+#    pass
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-db = SQLAlchemy(model_class=Base)
-db.init_app(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:password@bookdb.clwymwi405mi.us-east-1.rds.amazonaws.com/flaskaws'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+#db.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
