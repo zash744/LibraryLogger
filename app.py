@@ -12,7 +12,7 @@ from wtforms.validators import DataRequired
 import requests # type: ignore
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret-key-goes-here'
+app.config['SECRET_KEY'] = 'secret-key-21322111331'
 Bootstrap5(app)
 login_manager = LoginManager(app)
 
@@ -121,6 +121,10 @@ def login():
 
         result = db.session.execute(db.select(User).where(User.email == email))
         user = result.scalar()
+
+        if not user:
+            flash('Username or password is incorrect', 'error')
+            return render_template("login.html")
 
         # Check stored password hash against entered password hashed.
         if check_password_hash(user.password, password):
@@ -244,4 +248,4 @@ def findbook():
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
