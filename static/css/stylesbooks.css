@@ -26,6 +26,7 @@ body {
 	align-items: center;
 	flex-wrap: wrap;
 	max-width: 1500px;
+    color: white;
 }
 
 .description{
